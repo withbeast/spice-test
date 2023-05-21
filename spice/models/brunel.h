@@ -8,12 +8,13 @@ namespace spice
 {
 struct brunel : model
 {
-	struct neuron : ::spice::neuron<float, int_>
+	struct neuron : ::spice::neuron<float, int_,int_>
 	{             //                  |     |
 		enum attr //                  |     |
 		{         //                  |     |
 			V,    //__________________|     |
-			Twait //________________________|
+			Twait, //________________________|
+			Cnt
 		};
 
 		template <typename Iter, typename Backend>
@@ -40,8 +41,9 @@ struct brunel : model
 			if( n.id() < static_cast<uint_>( info.num_neurons / 2 ) ) // poisson neuron
 			{
 				float const firing_rate = 1; // Hz
-
-				return bak.rand() < ( firing_rate * dt );
+				bool fire=bak.rand() < ( firing_rate * dt );
+				if(fire)get<Cnt>(n)=get<Cnt>(n)+1;
+				return fire;
 			}
 			else
 			{
@@ -51,6 +53,7 @@ struct brunel : model
 					{
 						get<V>( n ) = Vrest;
 						get<Twait>( n ) = Tref;
+						get<Cnt>(n)=get<Cnt>(n)+1;
 						return true;
 					}
 
