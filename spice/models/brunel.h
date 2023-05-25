@@ -40,7 +40,7 @@ struct brunel : model
 
 			if( n.id() < static_cast<uint_>( info.num_neurons / 2 ) ) // poisson neuron
 			{
-				float const firing_rate = 500; // Hz
+				float const firing_rate = 100; // Hz
 				bool fire=bak.rand() < ( firing_rate * dt );
 				if(fire)get<Cnt>(n)=get<Cnt>(n)+1;
 				return fire;
