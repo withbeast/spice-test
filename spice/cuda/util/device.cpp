@@ -15,9 +15,9 @@ namespace spice::cuda::util
 {
 nonstd::span<device> device::devices()
 {
-	static std::array<device, max_devices> _devices{ 0, 1,2,3,4,5,6,7};
+	static std::array<device, max_devices> _devices{ 0, 1,2,3};
 	static size_ const n = [] {
-		int_ i = 8;
+		int_ i = 4;
 		// success_or_throw( cudaGetDeviceCount( &i ) );
 		spice_assert(
 		    spice::util::narrow<uint_>( i ) <= _devices.size(),
