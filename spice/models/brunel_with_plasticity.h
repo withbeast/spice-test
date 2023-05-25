@@ -46,7 +46,7 @@ struct brunel_with_plasticity : model
 
 			if( n.id() < static_cast<uint_>( info.num_neurons / 2 ) ) // poisson neuron
 			{
-				float const firing_rate = 20; // Hz
+				float const firing_rate = 100; // Hz
 
 				return bak.rand() < ( firing_rate * dt );
 			}
