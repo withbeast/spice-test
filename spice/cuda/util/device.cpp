@@ -17,7 +17,7 @@ nonstd::span<device> device::devices()
 {
 	static std::array<device, max_devices> _devices{ 0, 1};
 	static size_ const n = [] {
-		int_ i = 4;
+		int_ i = 2;
 		// success_or_throw( cudaGetDeviceCount( &i ) );
 		spice_assert(
 		    spice::util::narrow<uint_>( i ) <= _devices.size(),
