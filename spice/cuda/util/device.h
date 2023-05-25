@@ -20,7 +20,7 @@ public:
 	device( device && ) = delete;
 	device & operator=( device && ) = delete;
 
-	static constexpr size_ max_devices = 8;
+	static constexpr size_ max_devices = 4;
 	static nonstd::span<device> devices() noexcept( false );
 	static device & devices( size_ i );
 	static device & active();
