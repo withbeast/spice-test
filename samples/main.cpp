@@ -1358,12 +1358,12 @@ std::pair<double, double> _bench( std::tuple<bench, gpu> info, layout l, int del
 
 			for( auto & d : device::devices() ) d.synchronize();
 			tsim = t.stop();
-			cuda::multi_snn<brunel> nnet=dynamic_cast<cuda::multi_snn<brunel>>(net);
-			int sum=0;
-			for(int i=0;i<nnet.num_neurons;i++){
-				sum+=get<2>(nnet.neurons[i]);
-			}
-			std::cout<<sum<<std::endl;
+			// cuda::multi_snn<brunel> nnet=dynamic_cast<cuda::multi_snn<brunel>>(net);
+			// int sum=0;
+			// for(int i=0;i<nnet.num_neurons;i++){
+			// 	sum+=get<2>(nnet.neurons[i]);
+			// }
+			// std::cout<<sum<<std::endl;
 			
 		}
 		
