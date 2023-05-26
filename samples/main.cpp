@@ -1271,7 +1271,7 @@ int _main(
 	switch( str2model( model ) )
 	{
 	case model::vogels:
-		pc = 0.1;
+		pc = 0.02;
 		d = 8;
 		nneuron = static_cast<int>( std::sqrt( nsyn / pc ) );
 		break;
